@@ -9,9 +9,9 @@ public class Category {
 		
 	}
 	
-	public Category(int id, String categoryName) {
+	public Category(int id, String name) {
 		this.id = id;
-		this.name = categoryName;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -24,10 +24,6 @@ public class Category {
 
 	public String getname() {
 		return name;
-	}
-
-	public void setCategoryName(String name) {
-		this.name = name;
 	}
 
 }
