@@ -32,11 +32,13 @@ public class Main {
 		InstructorManager instructorManager = new InstructorManager(new HibernateInstructorDao(), loggers);
 		instructorManager.add(instructor1);
 		
-		CourseManager courseManager = new CourseManager(new HibernateCourseDao(), loggers);
-		courseManager.add(course1);
-		courseManager.add(course2);
-		courseManager.add(course3);
+		List<Course> courses = new ArrayList<Course>();
 		
+		  CourseManager courseManager = new CourseManager(new HibernateCourseDao(),loggers, courses); 
+		  courseManager.add(course1); 
+		  courseManager.add(course2);
+		  courseManager.add(course3); 
+		 
 	}
 
 }

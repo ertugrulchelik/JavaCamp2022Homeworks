@@ -11,23 +11,23 @@ public class CategoryManager {
 	
 	private CategoryDao categoryDao;
 	private List<Logger> loggers;
+	private List<Category> categories;
 	
-	public CategoryManager(CategoryDao categoryDao, List<Logger> loggers) {
+	public CategoryManager(CategoryDao categoryDao, List<Logger> loggers, List<Category> categories) {
 		this.categoryDao = categoryDao;
 		this.loggers = loggers;
+		this.categories = categories;
 	}
 
 	public void add(Category category) throws Exception {
-		
-		List<Category> categories = categoryDao.getAll();
-		
-		for (Category category2 : categories) {
-			if(category.getname() == category2.getname()) {
-				throw new Exception("kategori isimleri tekrar edemez");
+		for (Category category_ : categories) {
+			if(category.getname().equals(category_.getname())) {
+				throw new Exception("Kategori ismi ayni olamaz");
 			}
 		}
 		
 		categoryDao.add(category);
+		categories.add(category);
 		
 		for (Logger logger : loggers) {
 			logger.log(category.getname());
